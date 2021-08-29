@@ -30,11 +30,10 @@ export class ComentariosComponent implements OnInit {
     this.comentarios$ = this.comentariosService
       .incluirComentario(this.id, comentario)
       .pipe(
-        (switchMap(() => this.comentariosService.buscaComentario(this.id)),
+        switchMap(() => this.comentariosService.buscaComentario(this.id)),
         tap(() => {
-          this.comentarioForm.reset();
-          alert('Salvo Comentário');
-        }))
+          this.comentarioForm.reset(), alert('Salvo Comentário');
+        })
       );
   }
 }

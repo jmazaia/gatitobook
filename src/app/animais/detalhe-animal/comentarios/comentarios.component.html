@@ -1,5 +1,5 @@
 <div *ngIf="comentarios$ | async as comentarios">
-  <ul class="list-unstyled">
+  <ul class="list-unstyled comentario-list">
     <li *ngFor="let comentario of comentarios">
       <p class="text-dark font-weight-bold mr-1">
         {{ comentario.userName }}
@@ -11,11 +11,15 @@
   <div class="mt-4">
     <form [formGroup]="comentarioForm" (submit)="gravar()">
       <div class="input-group">
-        <textarea class="form-control" formControlName="comentario">
-          <div class="input-group-append">
-            <button [disabled]="comentarioForm.invalid" class="btn btn-primary pull-left">Publicar</button>
-          </div>
-        </textarea>
+        <textarea class="form-control" formControlName="comentario"> </textarea>
+        <div class="input-group-append">
+          <button
+            [disabled]="comentarioForm.invalid"
+            class="btn btn-primary pull-left"
+          >
+            Publicar
+          </button>
+        </div>
       </div>
       <app-mensagem
         mensagem="Tamanho Máximo de 300
